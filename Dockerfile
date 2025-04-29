@@ -1,6 +1,8 @@
-# Use the official Redmine image from DockerHub
+# Use the official Redmine Docker image with Ruby and Rails
 FROM redmine:5.1
 
-# Optional: Add plugins/themes later if needed
-# COPY ./plugins /usr/src/redmine/plugins
-# COPY ./themes /usr/src/redmine/public/themes
+# Expose the port Redmine will run on
+EXPOSE 3000
+
+# Set the command to start Redmine using Rails
+CMD ["rails", "server", "-b", "0.0.0.0"]
